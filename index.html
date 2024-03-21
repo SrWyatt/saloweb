@@ -1,51 +1,220 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIP</title>
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/8764/8764062.png">
+    <title>[BETA]Saloweb</title>
+    <link rel="icon" href="https://www.transparentpng.com/thumb/gear/setting-mark-grey-gear-png-icon--LfHXuY.png" type="image/x-icon">
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-image: url('https://unsisterly-collar.000webhostapp.com/apk/666.jpg');
+            background-image: url('https://images.hdqwalls.com/wallpapers/spikes-skull-2l.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            font-family: Calibri, Arial, sans-serif; 
+            color: white;
+            margin: 0; 
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            position: relative; 
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.5);
+            opacity: 0.9; 
+            background-image: linear-gradient(to bottom, white,#279eae, #8c00ff, #ffd900); 
+            border-radius: 10px; 
             padding: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            height: 200px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.1); 
         }
 
-        .content {
-            text-align: center;
-            font-family: Calibri, sans-serif; 
-            margin: 0; 
-        }
-
-        h1 {
+        input[type="text"],
+        textarea,
+        button {
+            width: 200px; 
+            padding: 10px;
+            margin: 5px 0; 
+            border-radius: 5px; 
+            border: none;
+            outline: none;
+            background-color: #171718; 
             color: white; 
+            font-weight: bold; 
+            font-size: 16px; 
+            font-family: Calibri, Arial, sans-serif; 
+        }
+
+        button {
+            background-color: #171718; 
+            cursor: pointer;
+            width: 37px; 
+        }
+
+        button:hover {
+            background-color: #5b5b5f; 
+        }
+
+        textarea {
+            height: 100px; 
+            resize: none; 
+        }
+
+        ::placeholder {
+            color: #ffffff; 
+            font-weight: bold; 
+        }
+
+      
+        .footer-text {
+            position: absolute;
+            bottom: 10px; 
+            left: 0;
+            right: 0;
+            margin: 0 auto; 
+            text-align: center; 
+            font-size: 12px; 
+            color: white; 
+            font-weight: bold; 
+        }
+
+       
+        @keyframes moveText {
+            0% { left: 0; }
+            50% { left: 50px; }
+            100% { left: 0; }
+            
+        }
+
+        .footer-text {
+            animation: moveText 0.8s infinite;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="content">
-            <h1>Sitio en Desarrollo</h1>
-        </div>
+        <input type="text" id="numero" class="caja-texto" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+               placeholder="Ingresar número">
+        <button onclick="enviarNumero()">➜</button>
+        <br>
+        <textarea id="textoRelacionado" rows="4" cols="50" readonly class="caja-texto" placeholder="Frase"></textarea>
+        <br>
+        <input type="text" id="fechaRelacionada" readonly class="caja-texto" placeholder="Fecha de la frase">
     </div>
+
+
+    <div class="footer-text">°°°SALOWEB°°°</div>
+
+    <script>
+        function enviarNumero() {
+        
+            var numero = document.getElementById("numero").value;
+
+          
+            var textos = {
+                1: {texto: "No me abre el killing floor", fecha: "14 / 07 / 2022"},
+                2: {texto: "Pinche mapa todo estúpido", fecha: "14 / 07 / 2022"},
+                3: {texto: "Todo el día con una verga en la mano", fecha: "15 / 07 / 2022"},
+                4: {texto: "Jorshop", fecha: "27 / 07 / 2022"},
+                5: {texto: "Probando, probando, probando, probando aqui probando", fecha: "01 / 08 / 2022"},
+                6: {texto: "Stardin valin", fecha: "26 / 08 / 2022"},
+                7: {texto: "Silencio mundo", fecha: "03 / 10 / 2022"},
+                8: {texto: "El único que me puede papear es yo mismo", fecha: "24 / 10 / 2022"},
+                9: {texto: "Aparador de choques", fecha: "25 / 10 / 2022"},
+                10: {texto: "jaja si pasa", fecha: "25 / 10 / 2022"},
+                11: {texto: "Es un negro albino", fecha: "26 / 10 / 2022"},
+                12: {texto: "Tengamos una pregunta", fecha: "26 / 10 / 2022"},
+                13: {texto: "Una ves arruinas tu reputación puedes vivir con más libertad", fecha: "27 / 10 / 2022"},
+                14: {texto: "*Pega un estornudio apocalíptico* Es un pequeño resfrío", fecha: "27 / 10 / 2022"},
+                15: {texto: "Consolador", fecha: "28 / 10 / 2022"},
+                16: {texto: "Hijo de puerra", fecha: "28 / 10 / 2022"},
+                17: {texto: "Tenía una razón muy de verdad", fecha: "1 / 11 / 2022"},
+                18: {texto: "Estoy viendo la radio we", fecha: "01 / 11 / 2022"},
+                19: {texto: "Expander", fecha: "10 / 11 / 2022"},
+                20: {texto: "Le meterías robux al dinero?", fecha: "15 / 11 / 2022"},
+                21: {texto: "Embolia celebral", fecha: "15 / 11 / 2022"},
+                22: {texto: "Constipado: cuando no tienes tripas", fecha: "16 / 11 / 2022"},
+                23: {texto: "El hombre chile", fecha: "17 / 11 / 2022"},
+                24: {texto: "No puedo creer que mi mano lo haga mejor que ella", fecha: "17 / 11 / 2022"},
+                25: {texto: "Me lo compré gratis", fecha: "18 / 11 / 2022"},
+                26: {texto: "Como chilla la perra", fecha: "20 / 11 / 2022"},
+                27: {texto: "Es que memo es una verga we, por eso se logró parar", fecha: "26 / 11 / 2022"},
+                28: {texto: "el que se va a correr soy yo", fecha: "01 / 12 / 2022"},
+                29: {texto: "Quien es pato 02?", fecha: "03 / 12 / 2022"},
+                30: {texto: "No aguanta una bromita", fecha: "05 / 12 / 2022"},
+                31: {texto: "Lo compró pirata", fecha: "08 / 12 / 2022"},
+                32: {texto: "Si quiere le meto la verga para que se desestreza", fecha: "08 / 12 / 2022"},
+                33: {texto: "Ay macumba, fuiste mi primer pecado", fecha: "09 / 12 / 2022"},
+                34: {texto: "Garruecos", fecha: "12 / 12 / 2022"},
+                35: {texto: "No me sirve, está viva", fecha: "18 / 12 / 2022"},
+                36: {texto: "Hijo de su pinche madre, me la metió", fecha: "26 / 12 / 2022"},
+                37: {texto: "Pongan esa frase, pongan esa frase, pongan esa frase antes de que se les olvide", fecha: "26 / 12 / 2022"},
+                38: {texto: "Por eso el papá de macumbo dijo que está a punto", fecha: "02 / 01 / 2023"},
+                39: {texto: "Por alguna raz+on todo gira al rededor de mi", fecha: "02 / 01 / 2023"},
+                40: {texto: "Los patos respiran bajo el agua", fecha: "03 / 01 / 2023"},
+                41: {texto: "Me estoy quedando ciego de la vista", fecha: "05 / 01 / 2023"},
+                42: {texto: "Papiaron al hechicero", fecha: "20 / 02 / 2023"},
+                43: {texto: "amanecí bien daltónico", fecha: "26 / 02 / 2023"},
+                44: {texto: "Insultiendolo", fecha: "08 / 03 / 2023"},
+                45: {texto: "Creo que alvin y las ardillas eran de CGI no? es que uno nunca sabe we", fecha: "23 / 03 / 2023"},
+                46: {texto: "Es que aprender brasileño en csgo es un arte", fecha: "24 / 03 / 2023"},
+                47: {texto: "Que triste esa musica we, sabes de que se trata?", fecha: "14 / 04 / 2023"},
+                48: {texto: "Se seinte bien culero cuando estas acostado y sientes que la espalda te suda resio we", fecha: "26 / 04 / 2023"},
+                49: {texto: "De que te va a amenazar algo que nacio ayer", fecha: "13 / 05 / 2023"},
+                50: {texto: "Callate macumba que estas dando creish", fecha: "13 / 05 / 2023"},
+                51: {texto: "y esta cosa es hombre o mujer?", fecha: "13 / 05 / 2023"},
+                52: {texto: "esta te la dedico jaco", fecha: "14 / 05 / 2023"},
+                53: {texto: "Entonces lo hobbits son vietnamitas?", fecha: "18 / 05 / 2023"},
+                54: {texto: "Le metí un machetazo al cerdito", fecha: "18 / 05 / 2023"},
+                55: {texto: "Es que microsoft ya sabe que me encanta el chile", fecha: "22 / 05 / 2023"},
+                56: {texto: "Por suerte solo me peugué con la cabeza en el concreto", fecha: "02 / 06 / 2023"},
+                57: {texto: "Pinche marcos no se mete y nos queremos burlar de él", fecha: "10 / 06 / 2023"},
+                58: {texto: "Me espantaste al animalito", fecha: "14 / 06 / 2023"},
+                59: {texto: "La taquería tiene aimbot", fecha: "21 / 06 / 2023"},
+                60: {texto: "Yo tenía mi skip de stip", fecha: "26 / 06 / 2023"},
+                61: {texto: "Locura artificial", fecha: "01 / 07 / 2023"},
+                62: {texto: "Odio a los religiosos porque se creen personas", fecha: "09 / 07 / 2023"},
+                63: {texto: "Me raidearon la carrera universitaria", fecha: "16 / 07 / 2023"},
+                64: {texto: "Dibujos daltónicos", fecha: "06 / 09 / 2023"},
+                65: {texto: "Fui a juicio", fecha: "19 / 10 / 2023"},
+                66: {texto: "Es que dios me limita we", fecha: "20 / 10 / 2023"},
+                67: {texto: "Me quemé solito verdad?", fecha: "08 / 11 / 2023"},
+                68: {texto: "Quien fue el pendejo que inventó el inglés?", fecha: "08 / 11 / 2023"},
+                69: {texto: "Como que el mixo trae algo en contra mío", fecha: "11 / 11 / 2023"},
+                70: {texto: "Si me quieres decir algo mirame con los ojos", fecha: "11 / 11 / 2023"},
+                71: {texto: "Una tarea menos, me faltan las otras 300 pero ahorita una chaqueta", fecha: "20 / 11 / 2023"},
+                72: {texto: "Es que yo sé cosas", fecha: "09 / 01 / 2024"},
+                73: {texto: "Dios es salvadoreño", fecha: "14 / 01 / 2024"},
+                74: {texto: "jaja le gané, me voy a chaquetear", fecha: "16 / 01 / 2026"},
+                75: {texto: "No juegues conmigo Dimitri", fecha: "12 / 02 / 2024"},
+            };
+
+    
+            if (textos[numero]) {
+               
+                var textoRelacionado = textos[numero].texto;
+                var fechaRelacionada = textos[numero].fecha;
+
+          
+                document.getElementById("textoRelacionado").value = textoRelacionado;
+                document.getElementById("fechaRelacionada").value = fechaRelacionada;
+            } else {
+        
+                alert("Error 001: Salofrase no registrada, intenta con otro número.");
+            }
+        }
+
+
+        var cajasTexto = document.querySelectorAll('.caja-texto');
+        cajasTexto.forEach(function(caja) {
+            caja.addEventListener('focus', function() {
+                this.placeholder = '';
+            });
+            caja.addEventListener('blur', function() {
+                if (this.value === '') {
+                    this.placeholder = this.getAttribute('placeholder');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
